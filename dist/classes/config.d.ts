@@ -1,5 +1,5 @@
 import type { ZodSchema } from "zod";
-export default class Config {
+export declare class NConfig {
     /**
      * Parses a file based on the extension.
      * Supports .json, .yml, .yaml, .toml.

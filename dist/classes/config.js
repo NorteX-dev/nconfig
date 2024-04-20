@@ -3,10 +3,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.NConfig = void 0;
 const fs_1 = require("fs");
 const toml_1 = __importDefault(require("toml"));
 const js_yaml_1 = __importDefault(require("js-yaml"));
-class Config {
+class NConfig {
     /**
      * Parses a file based on the extension.
      * Supports .json, .yml, .yaml, .toml.
@@ -63,4 +64,4 @@ class Config {
         return schema.parse(object);
     }
 }
-exports.default = Config;
+exports.NConfig = NConfig;

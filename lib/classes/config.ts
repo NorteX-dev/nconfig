@@ -3,7 +3,7 @@ import type { ZodSchema } from "zod";
 import toml from "toml";
 import yaml from "js-yaml";
 
-export default class Config {
+export class NConfig {
 	/**
 	 * Parses a file based on the extension.
 	 * Supports .json, .yml, .yaml, .toml.
