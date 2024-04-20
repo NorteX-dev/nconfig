@@ -1,4 +1,4 @@
-const NConfig = require("../dist/classes/config").NConfig;
+const { NConfig } = require("../dist/classes/config");
 const z = require("zod");
 const path = require("path");
 
