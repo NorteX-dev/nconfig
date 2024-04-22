@@ -46,7 +46,9 @@ export class NConfig {
 			filePath = process.cwd() + "/config.json";
 		} else if (existsSync(path.join(process.cwd() + "/config.toml"))) {
 			filePath = process.cwd() + "/config.toml";
-		} else if (existsSync(path.join(process.cwd() + "/config.yaml")) || existsSync(path.join(process.cwd() + "/config.yml"))) {
+		} else if (existsSync(path.join(process.cwd() + "/config.yaml"))) {
+			filePath = process.cwd() + "/config.yml";
+		} else if (existsSync(path.join(process.cwd() + "/config.yml"))) {
 			filePath = process.cwd() + "/config.yml";
 		}
 		return filePath;
