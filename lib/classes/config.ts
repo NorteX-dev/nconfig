@@ -2,6 +2,7 @@ import { existsSync, readFileSync } from "fs";
 import type { ZodSchema } from "zod";
 import toml from "toml";
 import yaml from "js-yaml";
+import path from "path";
 
 export class NConfig {
 	/**
@@ -34,13 +35,18 @@ export class NConfig {
 		}
 	}
 
+	/**
+	 * Tries to find a default config file in the current working directory.
+	 *
+	 * @internal
+	 */
 	private tryGetDefaultConfigPath(): string | undefined {
 		let filePath: string | undefined;
-		if (existsSync(process.cwd() + "/config.json")) {
+		if (existsSync(path.join(process.cwd() + "/config.json"))) {
 			filePath = process.cwd() + "/config.json";
-		} else if (existsSync(process.cwd() + "/config.toml")) {
+		} else if (existsSync(path.join(process.cwd() + "/config.toml"))) {
 			filePath = process.cwd() + "/config.toml";
-		} else if (existsSync(process.cwd() + "/config.yaml") || existsSync(process.cwd() + "/config.yml")) {
+		} else if (existsSync(path.join(process.cwd() + "/config.yaml")) || existsSync(path.join(process.cwd() + "/config.yml"))) {
 			filePath = process.cwd() + "/config.yml";
 		}
 		return filePath;
