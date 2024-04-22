@@ -7,7 +7,7 @@
 	"scripts": {
 		"dev": "nodemon src/index.ts",
 		"build": "tsc",
-		"test": "pnpm build && jest"
+		"test": "jest"
 	},
 	"keywords": [],
 	"author": "",
