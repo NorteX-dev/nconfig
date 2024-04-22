@@ -1,6 +1,6 @@
 {
-	"name": "nconfig",
-	"version": "0.1.0",
+	"name": "@nortex/config",
+	"version": "1.0.0",
 	"description": "A standardized way to parse various configuration files in your project.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

@@ -2,7 +2,7 @@ const { NConfig } = require("../dist/classes/config");
 const z = require("zod");
 const path = require("path");
 
-test("parse json file", () => {
+test("parse basic yaml config file", () => {
 	const schema = z.object({
 		hello: z.string(),
 	});
