@@ -1,0 +1,3 @@
+-   Add auto-config creation
+-   Add development/production config types
+-   Versioning?

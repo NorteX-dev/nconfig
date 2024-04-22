@@ -2,11 +2,11 @@
 
 A standardized way to write type-safe, validated configs.
 
-### Supported languages:
+### Supported config languages:
 
--   json
--   yaml
--   toml
+-   `json`
+-   `yaml`
+-   `toml`
 
 ### Usage:
 
@@ -15,5 +15,5 @@ You're going to need `zod` for validation, which is a peer dependency of this pa
 Install the package with your favorite package manager:
 
 ```sh
-$ npm install nconfig
+$ npm install @nortex/config
 ```
