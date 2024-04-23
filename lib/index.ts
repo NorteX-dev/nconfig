@@ -1,4 +1,4 @@
-import { existsSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
 import type { ZodSchema } from "zod";
 import toml from "toml";
 import yaml from "js-yaml";
