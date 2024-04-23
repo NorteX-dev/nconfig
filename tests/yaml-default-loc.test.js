@@ -1,4 +1,4 @@
-const { NConfig } = require("../dist/classes/config");
+const { NConfig } = require("../dist/index");
 const z = require("zod");
 
 test("parse yaml at default location", () => {
