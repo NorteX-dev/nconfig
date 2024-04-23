@@ -15,7 +15,7 @@ export class NConfig {
 	 */
 	parse<T>(schema: ZodSchema<T>, filePath?: string): T {
 		if (!filePath) {
-			filePath = this.tryGetDefaultConfigPath();
+			filePath = NConfig.tryGetDefaultConfigPath();
 			if (!filePath) {
 				throw new Error("No file path provided and no default config file found.");
 			}
@@ -40,7 +40,7 @@ export class NConfig {
 	 *
 	 * @internal
 	 */
-	private tryGetDefaultConfigPath(): string | undefined {
+	private static tryGetDefaultConfigPath(): string | undefined {
 		let filePath: string | undefined;
 		if (existsSync(path.join(process.cwd() + "/config.json"))) {
 			filePath = process.cwd() + "/config.json";
