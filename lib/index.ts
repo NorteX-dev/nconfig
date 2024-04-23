@@ -1,8 +1,19 @@
-import { existsSync, readFileSync } from "fs";
+import { existsSync, readFileSync, writeFileSync } from "fs";
 import type { ZodSchema } from "zod";
 import toml from "toml";
 import yaml from "js-yaml";
 import path from "path";
+
+type ParseOptions = {
+	filePath?: string;
+};
+
+class ConfigParsingError extends Error {
+	constructor(message: string) {
+		super(message);
+		this.name = "ConfigParsingError";
+	}
+}
 
 export class NConfig {
 	/**
@@ -11,15 +22,21 @@ export class NConfig {
 	 * If no file path is provided, it will default to the current working directory with the filename "config.yml".
 	 *
 	 * @param schema The schema to validate the file against.
-	 * @param filePath Absolute file path to your config file.
+	 * @param options The options to parse the file with.
 	 */
-	parse<T>(schema: ZodSchema<T>, filePath?: string): T {
+	parse<T>(schema: ZodSchema<T>, { filePath }: ParseOptions = {}): T {
 		if (!filePath) {
 			filePath = NConfig.tryGetDefaultConfigPath();
 			if (!filePath) {
-				throw new Error("No file path provided and no default config file found.");
+				throw new ConfigParsingError("No file path provided and no default config file found.");
 			}
 		}
+
+		const fileExists = existsSync(filePath);
+		if (!fileExists) {
+			throw new ConfigParsingError("The file provided does not exist.");
+		}
+
 		const rawString = readFileSync(filePath, "utf-8");
 		const extension = filePath.split(".").pop();
 		switch (extension) {
@@ -31,7 +48,7 @@ export class NConfig {
 			case "toml":
 				return this.parseTOML(schema, rawString);
 			default:
-				throw new Error("Unsupported file extension provided into parse().");
+				throw new ConfigParsingError("Unsupported file extension provided into parse().");
 		}
 	}
 
