@@ -15,6 +15,22 @@ class ConfigParsingError extends Error {
 	}
 }
 
+/**
+ * The main class for NConfig.
+ *
+ * @example
+ * ```ts
+ * import { NConfig } from "nconfig";
+ *
+ * const config = new NConfig();
+ *
+ * const schema = z.object({
+ *    property: z.string(),
+ * });
+ *
+ * const parsedConfig = config.parse(schema, { filePath: "config.yml" });
+ * ```
+ */
 export class NConfig {
 	/**
 	 * Parses a file based on the extension.
