@@ -1,6 +1,6 @@
 {
 	"name": "@nortex/config",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"description": "A standardized way to parse various configuration files in your project.",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

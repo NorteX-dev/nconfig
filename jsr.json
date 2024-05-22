@@ -1,5 +1,5 @@
 {
 	"name": "@nortex/config",
-	"version": "2.1.2",
+	"version": "2.1.3",
 	"exports": "./lib/index.ts"
 }

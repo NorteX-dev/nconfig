@@ -102,7 +102,7 @@ export class NConfig {
 	/**
 	 * Parses a TOML file.
 	 *
-	 * @param file The file to parse.
+	 * @param schema The schema to validate the file against.
 	 * @param rawString The raw JSON string to parse.
 	 */
 	parseTOML<T>(schema: ZodSchema<T>, rawString: string): T {
