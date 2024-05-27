@@ -1,5 +1,8 @@
 {
 	"name": "@nortex/config",
 	"version": "3.0.0",
-	"exports": "./lib/index.ts"
+	"exports": "./lib/index.ts",
+	"publish": {
+		"exclude": ["lib", "node_modules", "TODO.md", ".github"]
+	}
 }
